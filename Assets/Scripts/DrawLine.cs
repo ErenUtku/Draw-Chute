@@ -7,7 +7,6 @@ public class DrawLine : MonoBehaviour
     public GameObject linePrefab;
     public GameObject parachute;
     public GameObject InstantiatedCubes;
-    public EdgeCollider2D edgeCollider;
 
     private GameObject currentLine;
 
@@ -65,12 +64,10 @@ public class DrawLine : MonoBehaviour
     {
         currentLine = Instantiate(linePrefab, Vector3.zero , Quaternion.identity);
         lineRenderer = currentLine.GetComponent<LineRenderer>();
-        edgeCollider = currentLine.GetComponent<EdgeCollider2D>();
         drawPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         drawPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         lineRenderer.SetPosition(0, drawPositions[0]);
         lineRenderer.SetPosition(1, drawPositions[1]);
-        edgeCollider.points = drawPositions.ToArray();
     }
 
     void UpdateLineFunction(Vector2 newDrawPos)
@@ -78,7 +75,6 @@ public class DrawLine : MonoBehaviour
         drawPositions.Add(newDrawPos);
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1,newDrawPos);
-        edgeCollider.points = drawPositions.ToArray();
     }
 
     void CreateCubes()

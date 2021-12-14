@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LineCollider.cs" />
     <Compile Include="Assets\Scripts\DrawLine.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Unity/2019.4.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
